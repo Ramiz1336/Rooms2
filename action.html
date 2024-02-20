@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create or join Room</title>
+    <link rel="stylesheet" href="public\Assets\css\bootstrap.min.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="public\Assets\css\style.css">
+</head>
+
+<body style="padding-top: 3.5rem;">
+
+    <nav class="navbar navbar-expand-md fixed-top">
+        <img src="public\Assets\images\study.svg" class="logo" alt="">
+
+        <a href="#" class="navbar-brand text-dark">Study Buddy Finder</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">At a glance</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">How it works</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Plan and Price</a>
+                </li>
+
+            </ul>
+            <ul class="navbar-nav mr-0">
+                <li class="nav-item sign-in display-center">
+                    <a href="#" class="nav-link">Sign in</a>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-outline-secondary btn-lg text-info font-weight-bold join-room">Join the
+                        Room</button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-info btn-lg text-light font-weight-bold new-room">Make A Room</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</body>
+<main>
+    <div class="jumbotron h-100 d-flex">
+        <div class="conatiner w-50">
+            <h1 style="font-size: 3rem; font-family: 'lato';">
+                Premium Video rooms .Now available for free to everyone.
+            </h1>
+            <p style="font-size: 20px;">
+                We are redesigning the Our way of study for more productivity and to avoid distractions. Start with a
+                new mothod of studying.
+            </p>
+            <ul class="display-center justify-content-start">
+                <li style="padding: 0;">
+                    <button class="btn btn-lg text-light font-weight-bold display-center new-room"
+                        style="background-color: #01796b;">
+                        <span class="material-icons  mr-2 ">video_call</span>New Room
+                    </button>
+                </li>
+                <li class="pl-3">
+                    <button class="btn btn-lg btn-outline-secondary text-dark font-weight-bold display-center"
+                        style="background-color: #ffffff;">
+                        <span class="material-icons  mr-2">keyboard</span><input type="text" placeholder="Enter a code"
+                            style="border:none;" class="enter-code">
+                    </button>
+                </li>
+                <li class="text-dark pl-4 font-weight-bold cursor-pointer join-action">Join</li>
+            </ul>
+
+        </div>
+        <div class="conatiner w-50">
+            <img src="public\Assets\images\google-meet-people.jpg" alt="" class="signin-image">
+
+        </div>
+    </div>
+</main>
+<footer class="container">
+    <h6>
+        Learn More about <span class="learn-more text-info">
+            Study Buddy Finder
+        </span>.
+    </h6>
+</footer>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    $(function () {
+        $(document).on("click", ".join-room", function () {
+            $(".enter-code").focus();
+        })
+        $(document).on("click", ".join-action", function () {
+            var join_val = $('.enter-code').val();
+            var meetingUrl = window.location.origin + "?meetingID=" + join_val;
+            window.location.replace(meetingUrl);
+        })
+        $(document).on("click", ".new-room", function () {
+            var eight_d_val = Math.floor(Math.random() * 10000000);
+            var meetingUrl = window.location.origin + "?meetingID=" + eight_d_val;
+            window.location.replace(meetingUrl);
+        })
+
+    })
+</script>
+
+</html>
